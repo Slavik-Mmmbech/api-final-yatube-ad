@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions, filters
-from rest_framework.pagination import PageNumberPagination 
+from rest_framework.pagination import PageNumberPagination
 
 from posts.models import Post, Comment, Group, Follow
 from .serializers import (
