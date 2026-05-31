@@ -14,7 +14,7 @@ urlpatterns = [
          name="redoc"
          ),
     path("auth/token/",
-         TokenObtainPairView.as_view(), 
+         TokenObtainPairView.as_view(),
          name="token_obtain_pair"
          ),
     path("auth/token/refresh/",
