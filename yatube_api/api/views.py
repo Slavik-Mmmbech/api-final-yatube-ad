@@ -22,7 +22,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [IsAuthorOrReadOnly]
-
+    pagination_class = None
     lookup_field = "id"
     lookup_url_kwarg = "comment_id"
 
@@ -39,13 +39,13 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
+    pagination_class = None
 
 class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = FollowSerializer
     permission_classes = [permissions.IsAuthenticated]
     search_fields = ["following__username"]
-
+    pagination_class = None
     filter_backends = [filters.SearchFilter]
 
     def get_queryset(self):
