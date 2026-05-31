@@ -1,5 +1,4 @@
 from rest_framework import viewsets, permissions, filters
-from rest_framework.pagination import PageNumberPagination
 
 from posts.models import Post, Comment, Group, Follow
 from .serializers import (
@@ -15,7 +14,6 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthorOrReadOnly]
-    pagination_class = PageNumberPagination
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
